@@ -1,17 +1,19 @@
 package com.example.demo.paging.controller;
 
-import com.example.demo.basic.dto.BookDTO;
-import com.example.demo.basic.entity.Book;
-import com.example.demo.basic.service.BookService;
+import com.example.demo.paging.dto.PagingDTO;
+import com.example.demo.paging.entity.Paging;
 import com.example.demo.paging.service.PagingService;
 import org.hibernate.engine.jdbc.Size;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.data.domain.Pageable;
 
-import java.awt.print.Pageable;
 import java.util.List;
 
+
 @RestController
-@RequestMapping("/books")
+@RequestMapping("/paging")
 public class PagingController {
 
     private final PagingService bookService;
@@ -21,24 +23,30 @@ public class PagingController {
     }
 
     @PostMapping("/save")
-    public Book saveBook(@RequestBody BookDTO book){
+    public Paging saveBook(@RequestBody PagingDTO book){
         return bookService.saveBook(book);
     }
 
+    @PostMapping("/save-all")
+    public List<PagingDTO> saveAllBooks(@RequestBody List<PagingDTO> books){
+        return bookService.saveAllBooks(books);
+    }
+
     @GetMapping("/list")
-    public List<BookDTO> getAllBooks(Pageable page, Size size){
-        List<BookDTO> booklist = bookService.getAllBooks();
+    public Page<PagingDTO> getAllBooks(Pageable page, Size size){
+        Pageable pageable = (Pageable) PageRequest.of(1, 5);
+        Page<PagingDTO> booklist = bookService.getAllBooks(pageable);
         return booklist;
     }
 
     @GetMapping("/detail")
-    public BookDTO getBookById(@RequestParam(name = "id") Long id){
-        BookDTO book = bookService.getBookById(id);
+    public PagingDTO getBookById(@RequestParam(name = "id") Long id){
+        PagingDTO book = bookService.getBookById(id);
         return book;
     }
 
     @PostMapping("/update")
-    public void updateBook(@RequestParam(name = "id") Long id,@RequestBody BookDTO updatedBook){
+    public void updateBook(@RequestParam(name = "id") Long id,@RequestBody PagingDTO updatedBook){
         bookService.updateBook(id, updatedBook);
     }
 

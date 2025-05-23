@@ -11,6 +11,7 @@ import java.util.List;
 
 public interface PagingService {
     Paging saveBook(PagingDTO paging);
+    List<PagingDTO> saveAllBooks(List<PagingDTO> books);
     Page<PagingDTO> getAllBooks(Pageable pageable);
     PagingDTO getBookById(Long id);
     void updateBook(Long id, PagingDTO updatedPaging);

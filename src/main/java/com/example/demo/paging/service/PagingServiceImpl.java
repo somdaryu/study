@@ -32,6 +32,13 @@ public class PagingServiceImpl implements PagingService {
     }
 
     @Override
+    public List<PagingDTO> saveAllBooks(List<PagingDTO> books) {
+        return books.stream()
+                .map(PagingDTO -> pagingRepository.save(PagingDTO.toEntity()).toDTO())
+                .collect(Collectors.toList());
+    }
+
+    @Override
     public Page<PagingDTO> getAllBooks(Pageable pageable) {
         Page<Paging> pagingPage = pagingRepository.findAll(pageable);
         return pagingPage.map(Paging::toDTO);
