@@ -1,3 +1,4 @@
+/*
 package com.example.demo.stream.dto;
 
 import lombok.AllArgsConstructor;
@@ -12,3 +13,4 @@ import lombok.NoArgsConstructor;
 public class UserDTO {
     String name;
 }
+*/

@@ -1,7 +1,7 @@
+/*
 package com.example.demo.stream;
 
-import com.example.demo.stream.dto.UserDTO;
-import com.example.demo.stream.entity.User;
+import com.example.demo.search.dto.UserDTO;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -55,3 +55,4 @@ public class StreamPractice {
         System.out.println(result);
     }
 }
+*/

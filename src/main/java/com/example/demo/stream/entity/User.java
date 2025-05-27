@@ -1,3 +1,4 @@
+/*
 package com.example.demo.stream.entity;
 
 import jakarta.persistence.Entity;
@@ -19,3 +20,4 @@ public class User {
     String name;
     int age;
 }
+*/
