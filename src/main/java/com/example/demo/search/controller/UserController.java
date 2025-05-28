@@ -28,7 +28,7 @@ public class UserController {
     @GetMapping("/list")
     public Page<UserDTO> findBykeyword(@RequestParam(name = "keyword") String keyword,
                                        @PageableDefault(size = 5) Pageable pageable) {
-        return userService.findByNameContaining(keyword, pageable);
+        return userService.searchUsers(keyword, pageable);
     }
 
     @GetMapping

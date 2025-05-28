@@ -13,7 +13,7 @@ import java.util.Optional;
 
 
 @Repository
-public interface UserRepository extends JpaRepository<User, Long> {
+public interface UserRepository extends JpaRepository<User, Long>, UserRepositoryCustom {
     Page<User> findByNameContaining(@Param("keyword") String keyword, Pageable pageable);
 
     Optional<User> findById(Long id);

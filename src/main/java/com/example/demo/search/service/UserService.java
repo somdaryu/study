@@ -17,4 +17,7 @@ public interface UserService {
     UserDTO update(UserDTO userDTO);
 
     List<UserDTO> getUserByAge(int age);
+
+    // # querydsl 사용
+    Page<UserDTO> searchUsers(String keyword, Pageable pageable);
 }

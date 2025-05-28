@@ -66,4 +66,9 @@ public class UserServiceImpl implements UserService {
         }
         return dtoList;
     }
+
+    @Override
+    public Page<UserDTO> searchUsers(String keyword, Pageable pageable) {
+        return userRepository.searchUsers(keyword, pageable);
+    }
 }

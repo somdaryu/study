@@ -32,4 +32,11 @@ public class UserDTO {
                 .createdAt(LocalDateTime.parse(this.createdAt))
                 .age(this.age).build();
     }
+
+    // # query dsl용
+    public UserDTO(long id, String name, int age) {
+        this.id = id;
+        this.name = name;
+        this.age = age;
+    }
 }
