@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestControllerAdvice
-public class GlobalExceptionHandler {
+public class ValidationExceptionHandler {
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<List<String>> handleValidationException(MethodArgumentNotValidException ex) {
